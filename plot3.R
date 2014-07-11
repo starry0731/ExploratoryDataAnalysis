@@ -1,0 +1,10 @@
+## Plot 3
+subpower$Sub_metering_1 <- as.numeric(as.character(subpower$Sub_metering_1))
+subpower$Sub_metering_2 <- as.numeric(as.character(subpower$Sub_metering_2))
+subpower$Sub_metering_3 <- as.numeric(as.character(subpower$Sub_metering_3))
+with(subpower,plot(Time,Sub_metering_1,type='l',ylab='Energy sub metering',xaxt='n'))
+lines(subpower$Time,subpower$Sub_metering_2,type='l',col='red')
+lines(subpower$Time,subpower$Sub_metering_3,type='l',col='blue')
+legend('topright', lty=c(1,1,1),col=c('black','red','blue'),legend=c('Sub_metering_1','Sub_metering_2','Sub_metering_3'),cex=0.7)
+dev.copy(png,file='plot3.png')
+dev.off()
